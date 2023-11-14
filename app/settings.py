@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "rest_framework",
     "core",
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,5 @@ SPECTACULAR_SETTINGS = {
 }
 
 print(f"MODE: {MODE} \nMEDIA_URL: {MEDIA_URL} \nDATABASE: {DATABASES}")
+
+AUTH_USER_MODEL = "usuario.Usuario"

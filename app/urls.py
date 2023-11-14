@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -7,7 +7,11 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from usuario.router import router as usuario_router
+
+
 urlpatterns = [
+        path("api/", include(usuario_router.urls)),
     path("admin/", admin.site.urls),
     # OpenAPI 3
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
