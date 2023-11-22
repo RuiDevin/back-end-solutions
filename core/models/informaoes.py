@@ -13,8 +13,6 @@ class SeuModelo(models.Model):
         choices=SubOpcaoEscolha.choices,
         default=SubOpcaoEscolha.SUB_OPCAO_1,
     )
-    complemento_detalhes = models.CharField(max_length=255, blank=True)
-    
     def __str__(self):
         return self.diagnostico
 
