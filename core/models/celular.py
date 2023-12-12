@@ -1,4 +1,4 @@
-import secrets
+
 
 from django.db import models 
 
@@ -64,7 +64,6 @@ MOTOROLA_CHOICES = [
     ('Motorola', 'Motorola One'),
 ]
 
-import secrets
 
 from django.db import models 
 
@@ -137,15 +136,10 @@ class Celular(models.Model):
     diagnostico = models.ForeignKey(SeuModelo, on_delete=models.PROTECT, null=True)
     complemento_detalhes = models.CharField(max_length=255, blank=True)
     data_e_horario = models.DateTimeField(null=True)
-    codigo_unico = models.CharField(max_length=31, unique=True, default=secrets.token_urlsafe)
 
-    def save(self, *args, **kwargs):
-        if not self.codigo_unico:
-            self.codigo_unico = secrets.token_urlsafe(16)
-        super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'Desktop - {self.codigo_unico}'
+        return f'Desktop - {self.modelo_e_marca}'
 
 
 class Celular(models.Model):
@@ -153,12 +147,6 @@ class Celular(models.Model):
     diagnostico = models.ForeignKey(SeuModelo, on_delete=models.PROTECT, null=True)
     complemento_detalhes = models.CharField(max_length=255, blank=True)
     data_e_horario = models.DateTimeField(null=True)
-    codigo_unico = models.CharField(max_length=31, unique=True, default=secrets.token_urlsafe)
+    
 
-    def save(self, *args, **kwargs):
-        if not self.codigo_unico:
-            self.codigo_unico = secrets.token_urlsafe(16)
-        super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f'Desktop - {self.codigo_unico}'
