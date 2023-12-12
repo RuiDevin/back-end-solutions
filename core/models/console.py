@@ -1,7 +1,7 @@
 import secrets
 from django.db import models
 
-from .informaoes import SeuModelo
+from .informacoes import SeuModelo
 
 CONSOLE_CHOICES = [
     ('Xbox', 'Xbox 360'),

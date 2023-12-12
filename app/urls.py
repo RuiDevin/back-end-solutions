@@ -3,6 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from core.views import CelularViewSet, ConsoleViewSet, DesktopViewSet, SeuModeloViewSet, OrdemViewSet, NotebookViewSet
+
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -13,10 +15,20 @@ from usuario.router import router as usuario_router
 
 from uploader.router import router as uploader_router
 
+from rest_framework.routers import DefaultRouter
 
+router = DefaultRouter()
+router.register(r"celular", CelularViewSet)
+router.register(r"console", ConsoleViewSet)
+router.register(r"desktop", DesktopViewSet)
+router.register(r"informacoes", SeuModeloViewSet)
+router.register(r"notebook", NotebookViewSet)
+router.register(r"ordem", OrdemViewSet)
 
 urlpatterns = [
+    path("", include(router.urls)),
     path("api/media/", include(uploader_router.urls)),
+    path("api/", include(router.urls)),
         path("api/", include(usuario_router.urls)),
     path("admin/", admin.site.urls),
     # OpenAPI 3

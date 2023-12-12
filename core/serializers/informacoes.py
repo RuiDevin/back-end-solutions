@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from core.models import Informacoes
+from core.models import SeuModelo
 
-class InformacoesSerializer(ModelSerializer):
+class SeuModeloSerializer(ModelSerializer):
     class Meta:
-        model = Informacoes
+        model = SeuModelo
         fields = "__all__"

@@ -2,7 +2,7 @@ import secrets
 
 from django.db import models
 
-from .informaoes import SeuModelo
+from .informacoes import SeuModelo
 
 class Desktop(models.Model):
     diagnostico = models.ForeignKey(SeuModelo, on_delete=models.PROTECT, null=True)

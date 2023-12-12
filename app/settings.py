@@ -74,6 +74,7 @@ WSGI_APPLICATION = "app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 if MODE in ["PRODUCTION", "MIGRATE"]:
+    
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",

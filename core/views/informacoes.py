@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
 
-from core.models import Informaoes
-from core.serializers import InformaoesSerializer
+from core.models import SeuModelo
+from core.serializers import SeuModeloSerializer
 
-class InformaoesViewSet(ModelViewSet):
-    queryset = Informaoes.objects.all()
-    serializer_class = InformaoesSerializer
+class SeuModeloViewSet(ModelViewSet):
+    queryset = SeuModelo.objects.all()
+    serializer_class = SeuModeloSerializer
